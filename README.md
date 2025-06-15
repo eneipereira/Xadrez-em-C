@@ -26,7 +26,7 @@ Neste nível, são simulados os movimentos de três peças do xadrez utilizando 
 
 O usuário escolhe a peça, e o programa exibe cada movimento no console.
 
-### Nível Aventureiro
+### Nível Aventureiro (Implementado)
 
 Implementa a movimentação do Cavalo, que ocorre em "L", utilizando loops aninhados. O movimento simulado é de duas casas para baixo e uma para a esquerda, exigindo o uso de pelo menos um for e outro loop (while ou do-while).
 

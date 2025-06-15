@@ -9,6 +9,7 @@ void exibirMenu() {
   printf("1 - Torre\n");
   printf("2 - Bispo\n");
   printf("3 - Rainha\n");
+  printf("4 - Cavalo\n");
   printf("\nDigite o número da sua escolha: ");
 }
 
@@ -41,6 +42,24 @@ void moverRainha() {
   } while (quantidadeMovimentos > 0);
 }
 
+// Essa função simula o movimento do Cavalo no tabuleiro de xadrez, usando um loop aninhado de for e while.
+void moverCavalo() {
+  int quantidadeMovimentosVerticais = 2;
+  int quantidadeMovimentosHorizontais = 1;
+  for (int i = 0; i < quantidadeMovimentosVerticais; i++) {
+    printf("Baixo\n");
+    usleep(500000); // Pausa de 0.5 segundos para simular o movimento
+    if (i == quantidadeMovimentosVerticais - 1) {
+      int j = 0;
+      while (j < quantidadeMovimentosHorizontais) {
+        printf("Esquerda\n");
+        usleep(500000); // Pausa de 0.5 segundos para simular o movimento
+        j++;
+      }
+    }
+  }
+}
+
 // Essa função recebe a escolha do usuário e executa a ação correspondente.
 void escolherPeca(int escolha) {
   switch (escolha) {
@@ -55,6 +74,10 @@ void escolherPeca(int escolha) {
     case 3:
       printf("\nMovendo a Rainha 8 casas para a esquerda...\n");
       moverRainha();
+      break;
+    case 4:
+      printf("\nMovendo o Cavalo 2 casas para baixo e 1 casa para a esquerda...\n\n");
+      moverCavalo();
       break;
     default:
       printf("\nEscolha inválida! Por favor, escolha uma peça válida.\n");
