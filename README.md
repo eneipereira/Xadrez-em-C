@@ -14,7 +14,7 @@ O projeto é dividido em três módulos, com níveis de dificuldade crescente, v
 
 ## Níveis do Projeto
 
-### Nível Novato
+### Nível Novato (Implementado)
 
 Neste nível, são simulados os movimentos de três peças do xadrez utilizando estruturas de repetição simples:
 
