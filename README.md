@@ -30,7 +30,7 @@ O usuário escolhe a peça, e o programa exibe cada movimento no console.
 
 Implementa a movimentação do Cavalo, que ocorre em "L", utilizando loops aninhados. O movimento simulado é de duas casas para baixo e uma para a esquerda, exigindo o uso de pelo menos um for e outro loop (while ou do-while).
 
-### Nível Mestre
+### Nível Mestre (Implementado)
 
 Substitui os movimentos da Torre, Bispo e Rainha por funções recursivas. O Cavalo é aprimorado com loops aninhados complexos e controle de fluxo com continue e break. O Bispo também é reimplementado com recursividade combinada com loops aninhados, simulando um movimento diagonal completo.
 

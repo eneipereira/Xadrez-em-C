@@ -13,49 +13,51 @@ void exibirMenu() {
   printf("\nDigite o número da sua escolha: ");
 }
 
-// Essa função simula o movimento da Torre no tabuleiro de xadrez usando o for.
-void moverTorre() {
-  int quantidadeMovimentos = 5;
-  for (int i = 0; i < quantidadeMovimentos; i++) {
-    printf("Direita\n");
+// Essa função simula o movimento da Torre no tabuleiro de xadrez usando a recursão.
+void moverTorre(int movimentos) {
+  if (movimentos <= 0) return; // Condição de parada para a recursão
+  printf("Direita\n");
+  usleep(500000); // Pausa de 0.5 segundos para simular o movimento
+  moverTorre(movimentos - 1); // Chamada recursiva para continuar o movimento
+}
+
+// Essa função simula o movimento do Bispo no tabuleiro de xadrez usando um loop aninhado e recursão.
+void moverBispo(int movimentos) {
+  if (movimentos <= 0) return; // Condição de parada
+
+  for (int i = 0; i < 1; i++) {
+    printf("Cima\n");
     usleep(500000); // Pausa de 0.5 segundos para simular o movimento
+    for (int j = 0; j < 1; j++) {
+      printf("Direita\n");
+      usleep(500000); // Pausa de 0.5 segundos para simular o movimento
+    }
   }
+
+  moverBispo(movimentos - 1); // Chamada recursiva para continuar o movimento
 }
 
-// Essa função simula o movimento do Bispo no tabuleiro de xadrez usando o while.
-void moverBispo() {
-  int quantidadeMovimentos = 5;
-  while (quantidadeMovimentos > 0) {
-    printf("Cima, direita\n");
-    usleep(500000); // Pausa de 0.5 segundos para simular o movimento
-    quantidadeMovimentos--;
-  }
+// Essa função simula o movimento da Rainha no tabuleiro de xadrez usando recursão.
+void moverRainha(int movimentos) {
+  if (movimentos <= 0) return; // Condição de parada
+  printf("Esquerda\n");
+  usleep(500000); // Pausa de 0.5 segundos para simular o movimento
+  moverRainha(movimentos - 1); // Chamada recursiva para continuar o movimento
 }
 
-// Essa função simula o movimento da Rainha no tabuleiro de xadrez usando o do-while.
-void moverRainha() {
-  int quantidadeMovimentos = 8;
-  do {
-    printf("Esquerda\n");
-    usleep(500000); // Pausa de 0.5 segundos para simular o movimento
-    quantidadeMovimentos--;
-  } while (quantidadeMovimentos > 0);
-}
-
-// Essa função simula o movimento do Cavalo no tabuleiro de xadrez, usando um loop aninhado de for e while.
+// Essa função simula o movimento do Cavalo no tabuleiro de xadrez, usando um loop com multiplas variáveis e condições usando continue e break para controlar o fluxo do programa.
 void moverCavalo() {
-  int quantidadeMovimentosVerticais = 2;
-  int quantidadeMovimentosHorizontais = 1;
-  for (int i = 0; i < quantidadeMovimentosVerticais; i++) {
-    printf("Baixo\n");
-    usleep(500000); // Pausa de 0.5 segundos para simular o movimento
-    if (i == quantidadeMovimentosVerticais - 1) {
-      int j = 0;
-      while (j < quantidadeMovimentosHorizontais) {
-        printf("Esquerda\n");
-        usleep(500000); // Pausa de 0.5 segundos para simular o movimento
-        j++;
-      }
+  int movimentos = 3;
+  for (int i = 0, j = 0; i < movimentos; i++, j += (i % 2 == 0 ? 1 : 0)) {
+    if (i < 2) {
+      printf("Cima\n");
+      usleep(500000);
+      continue; // volta para o início do loop para concluir os movimentos verticais
+    }
+
+    if (j == 1) {
+      printf("Direita\n");
+      break; // encerra o loop quando o movimento completo em L foi feito
     }
   }
 }
@@ -65,15 +67,15 @@ void escolherPeca(int escolha) {
   switch (escolha) {
     case 1:
       printf("\nMovendo a Torre 5 casas para a direita...\n\n");
-      moverTorre();
+      moverTorre(5);
       break;
     case 2:
       printf("\nMovendo o Bispo 5 casas na diagonal para cima e à direita...\n\n");
-      moverBispo();
+      moverBispo(5);
       break;
     case 3:
       printf("\nMovendo a Rainha 8 casas para a esquerda...\n");
-      moverRainha();
+      moverRainha(8);
       break;
     case 4:
       printf("\nMovendo o Cavalo 2 casas para baixo e 1 casa para a esquerda...\n\n");
